@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Block Futures ($BLF) — track whale activity, uncover hidden liquidity, and analyze market-moving news with AI-powered futures insights."
+    />
+    <title>Block Futures ($BLF)</title>
+
+    <link rel="icon" type="image/png" href="./assets/logo-mark.png" />
+    <link rel="apple-touch-icon" href="./assets/logo-mark.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true">
+      <div class="bg__grid"></div>
+      <div class="bg__vignette"></div>
+    </div>
+
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="#top" aria-label="Block Futures home">
+          <img class="brand__logo" src="./assets/logo.png" alt="Block Futures logo" />
+          <div class="brand__text">
+            <span class="brand__name">Block Futures</span>
+          </div>
+        </a>
+
+        <nav class="nav">
+          <a class="nav__link" href="#top">Home</a>
+          <a class="nav__link" href="#about">About</a>
+          <a class="nav__link" href="#features">Features</a>
+          <a class="nav__link" href="#how-it-works">How it works</a>
+          <a class="nav__link" href="#roadmap">Roadmap</a>
+          <a class="nav__link" href="#tokenomics">Tokenomics</a>
+          <a class="nav__link" href="#get-started">Access</a>
+        </nav>
+
+        <div class="topbar__actions">
+          <a
+            class="btn btn--ghost btn--small socialBtn"
+            href="https://x.com/Blockfutures_io"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Block Futures on X"
+          >
+            <span class="socialBtn__icon" aria-hidden="true">𝕏</span>
+          </a>
+          <a
+            class="btn btn--ghost btn--small socialBtn"
+            href="https://t.me/Blockfutures_io"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Block Futures on Telegram"
+          >
+            <span>Telegram</span>
+          </a>
+          <a class="btn btn--primary btn--small" href="#get-started">Get access</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero__shader" aria-hidden="true">
+          <canvas id="glCanvas"></canvas>
+        </div>
+        <div class="container hero__inner">
+          <div class="hero__split">
+            <div class="hero__left">
+              <div class="hero__kicker">Block Futures • $BLF</div>
+              <h1 class="hero__title">
+                <span class="heroTitle__base">See the market</span>
+                <span class="heroTitle__accent">before it moves</span>
+              </h1>
+              <p class="hero__subtitle">
+                Track whale activity, uncover hidden liquidity, and analyze market-moving news
+                with AI-powered futures insights—so you stay ahead instead of reacting.
+              </p>
+
+              <div class="hero__cta">
+                <a class="btn btn--primary" href="#roadmap">BLF PLATFORM (SOON)</a>
+                <a class="btn btn--ghost" href="#how-it-works">EXPLORE FEATURES</a>
+              </div>
+            </div>
+
+            <div class="hero__right" aria-label="Futures PnL cards">
+              <div class="pnlDeck" id="pnlDeck">
+                <div class="pnlCard pnlCard--solo" data-seed="a">
+                  <div class="bfPanel" aria-label="Block Futures trading panel">
+                    <div class="bfPanel__body">
+                      <div class="bfPnl">
+                        <div class="bfPnl__hdr" aria-label="Block Futures PnL card header">
+                          <div class="bfPnlBrand">
+                            <img class="bfPnlBrand__logo" src="./assets/logo-mark.png" alt="" />
+                            <div class="bfPnlBrand__txt">
+                              <div class="bfPnlBrand__name">Block Futures</div>
+                              <div class="bfPnlBrand__sub">PnL Card</div>
+                            </div>
+                          </div>
+                          <div class="bfPnlBadge" aria-hidden="true">LIVE</div>
+                        </div>
+
+                        <div class="bfPnl__k">Unrealized PnL</div>
+                        <div class="bfPnl__v" data-pnl>+$1,248.90</div>
+                        <div class="bfPnl__bar" aria-label="PnL strength">
+                          <span class="bfPnl__fill pnlCard__fill" style="--p: 0.72"></span>
+                        </div>
+
+                        <div class="bfPnl__stats" aria-label="PnL details">
+                          <div class="bfStat">
+                            <div class="bfStat__k">BTC / PRICE</div>
+                            <div class="bfStat__v" data-mark>67,980.5</div>
+                          </div>
+                          <div class="bfStat">
+                            <div class="bfStat__k">Indicator</div>
+                            <div class="bfStat__v" data-entry>RSI</div>
+                          </div>
+                          <div class="bfStat">
+                            <div class="bfStat__k">Signal Score</div>
+                            <div class="bfStat__v bfStat__v--pos" data-roi>+18.4%</div>
+                          </div>
+                          <div class="bfStat">
+                            <div class="bfStat__k">Risk Meter</div>
+                            <div class="bfStat__v" data-funding>+0.012%</div>
+                          </div>
+                          <div class="bfTextBanner" aria-label="Marketing banner">
+                            <div class="bfTextBanner__track" aria-hidden="true">
+                              <span class="bfTextBanner__item">
+                                Whale momentum ignition detected. Signal confirms with flow + structure alignment.
+                              </span>
+                              <span class="bfTextBanner__item">
+                                Whale momentum ignition detected. Signal confirms with flow + structure alignment.
+                              </span>
+                            </div>
+                            <div class="bfTextBanner__fade" aria-hidden="true"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section section--alt">
+        <div class="container">
+          <div class="aboutIntro">
+            <div class="section__head aboutIntro__text">
+              <h2 class="section__title">About the project</h2>
+              <p class="section__desc">
+                Block Futures is an advanced intelligence platform for crypto derivatives traders, built to
+                uncover what the market hides. By combining real-time whale tracking, hidden liquidity
+                mapping, and AI-driven analysis of futures data and market-moving news, Block Futures
+                turns complex signals into clear, actionable insights.
+                <br /><br />
+                Instead of reacting to price, users can understand the forces behind it—monitoring large
+                players, identifying key liquidation zones, and spotting momentum before it unfolds.
+                Designed for both active traders and data-driven investors, Block Futures delivers the
+                edge needed to navigate and outperform in fast-moving futures markets.
+              </p>
+
+            </div>
+
+            <div class="aboutIntro__scanner" aria-label="Market scanner card">
+              <div class="scanner__panel">
+                <div class="scanner__top">
+                  <div class="scanner__title">Market Scanner</div>
+                  <div class="scanner__status">
+                    <span class="scannerDot" aria-hidden="true"></span>
+                    SCANNING
+                  </div>
+                </div>
+
+                <div class="scanner__map" id="scannerMap" aria-hidden="true">
+                  <div class="scanner__sweep"></div>
+                  <div class="scanner__rings"></div>
+                  <div class="scanner__mesh"></div>
+                  <div class="scanner__globe"></div>
+
+                  <div class="node node--a" data-kind="WHALE">
+                    <div class="nodeLabel">
+                      <div class="nodeLabel__k">CEX</div>
+                      <div class="nodeLabel__v">BINANCE</div>
+                    </div>
+                  </div>
+                  <div class="node node--b" data-kind="LIQ">
+                    <div class="nodeLabel">
+                      <div class="nodeLabel__k">CEX</div>
+                      <div class="nodeLabel__v">BYBIT</div>
+                    </div>
+                  </div>
+                  <div class="node node--c" data-kind="NEWS">
+                    <div class="nodeLabel">
+                      <div class="nodeLabel__k">NEWS</div>
+                      <div class="nodeLabel__v">AI FEED</div>
+                    </div>
+                  </div>
+                  <div class="node node--d" data-kind="OI">
+                    <div class="nodeLabel">
+                      <div class="nodeLabel__k">CEX</div>
+                      <div class="nodeLabel__v">OKX</div>
+                    </div>
+                  </div>
+                  <div class="node node--e" data-kind="FUND">
+                    <div class="nodeLabel">
+                      <div class="nodeLabel__k">DEX</div>
+                      <div class="nodeLabel__v">UNISWAP</div>
+                    </div>
+                  </div>
+                  <div class="node node--f" data-kind="LQTY">
+                    <div class="nodeLabel">
+                      <div class="nodeLabel__k">DEX</div>
+                      <div class="nodeLabel__v">JUPITER</div>
+                    </div>
+                  </div>
+                  <div class="node node--g" data-kind="DEX">
+                    <div class="nodeLabel">
+                      <div class="nodeLabel__k">DEX</div>
+                      <div class="nodeLabel__v">ASTER</div>
+                    </div>
+                  </div>
+                  <div class="node node--h" data-kind="DEX">
+                    <div class="nodeLabel nodeLabel--long">
+                      <div class="nodeLabel__k">DEX</div>
+                      <div class="nodeLabel__v">HYPERLIQUID</div>
+                    </div>
+                  </div>
+
+                  <div class="path path--1"><span class="packet"></span></div>
+                  <div class="path path--2"><span class="packet"></span></div>
+                  <div class="path path--3"><span class="packet"></span></div>
+
+                  <div class="arc arc--1" aria-hidden="true"></div>
+                  <div class="arc arc--2" aria-hidden="true"></div>
+                  <div class="arc arc--3" aria-hidden="true"></div>
+
+                  <div class="mapPanel" aria-hidden="true">
+                    <div class="mapPanel__title">Contracts & Routes</div>
+                    <div class="mapPanel__row">
+                      <div class="mapPanel__k">$BLF (ERC‑20)</div>
+                      <div class="mapPanel__v addr" data-addr="blf">0xB1F…A9c2</div>
+                    </div>
+                    <div class="mapPanel__row">
+                      <div class="mapPanel__k">Treasury</div>
+                      <div class="mapPanel__v addr" data-addr="treasury">0x7E2…4D10</div>
+                    </div>
+                    <div class="mapPanel__row">
+                      <div class="mapPanel__k">DEX Router</div>
+                      <div class="mapPanel__v addr" data-addr="router">0xE59…3b6D</div>
+                    </div>
+                    <div class="mapPanel__divider"></div>
+                    <div class="mapPanel__row">
+                      <div class="mapPanel__k">CEX Gateways</div>
+                      <div class="mapPanel__v">BINANCE • BYBIT • OKX</div>
+                    </div>
+                    <div class="mapPanel__row">
+                      <div class="mapPanel__k">DEX Venues</div>
+                      <div class="mapPanel__v">UNISWAP</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="feed aboutFeed terminal" aria-label="Live events terminal">
+            <div class="terminal__top">
+              <div class="terminal__controls" aria-hidden="true">
+                <span class="termDot termDot--red"></span>
+                <span class="termDot termDot--amber"></span>
+                <span class="termDot termDot--green"></span>
+              </div>
+              <div class="terminal__title">BF://LIVE_EVENTS</div>
+              <div class="terminal__meta">Last 60s</div>
+            </div>
+            <div class="terminal__body">
+              <div class="terminal__prompt" aria-hidden="true">
+                <span class="termPrompt__label">blockfutures</span>
+                <span class="termPrompt__sep">@</span>
+                <span class="termPrompt__label">scanner</span>
+                <span class="termPrompt__sep">:</span>
+                <span class="termPrompt__path">~/feed</span>
+                <span class="termPrompt__sep">$</span>
+                <span class="termPrompt__cmd">tail -f events.log</span>
+                <span class="termCursor"></span>
+              </div>
+              <div class="feed__list terminal__list" id="eventFeed" role="list" aria-label="Event feed"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="section__title">Features</h2>
+            <p class="section__desc">
+              Six core modules designed to keep you ahead of futures flow.
+            </p>
+          </div>
+
+          <div class="featureGrid">
+            <article class="featureCard">
+              <div class="featureCard__icon" aria-hidden="true"><span class="glyph glyph--pulse"></span></div>
+              <h3 class="featureCard__title">Whale Radar</h3>
+              <p class="featureCard__desc">Track large orders, aggression, and positioning shifts in real time.</p>
+            </article>
+            <article class="featureCard">
+              <div class="featureCard__icon" aria-hidden="true"><span class="glyph glyph--pin"></span></div>
+              <h3 class="featureCard__title">Liquidity Map</h3>
+              <p class="featureCard__desc">Reveal pockets, magnets, and absorption zones that steer price.</p>
+            </article>
+            <article class="featureCard">
+              <div class="featureCard__icon" aria-hidden="true"><span class="glyph glyph--spark"></span></div>
+              <h3 class="featureCard__title">AI News Impact</h3>
+              <p class="featureCard__desc">Score headlines by impact and link catalysts to structure and flow.</p>
+            </article>
+            <article class="featureCard">
+              <div class="featureCard__icon" aria-hidden="true"><span class="glyph glyph--bolt"></span></div>
+              <h3 class="featureCard__title">Futures Alerts</h3>
+              <p class="featureCard__desc">Get notified on breakpoints: sweeps, flips, squeezes, and liquidations.</p>
+            </article>
+            <article class="featureCard">
+              <div class="featureCard__icon" aria-hidden="true"><span class="glyph glyph--eye"></span></div>
+              <h3 class="featureCard__title">Market HUD</h3>
+              <p class="featureCard__desc">A clean signal-first interface for fast decisions under pressure.</p>
+            </article>
+            <article class="featureCard">
+              <div class="featureCard__icon" aria-hidden="true"><span class="glyph glyph--rewind"></span></div>
+              <h3 class="featureCard__title">Backtest Mode</h3>
+              <p class="featureCard__desc">Replay sessions and validate patterns against historical futures behavior.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="section__title">How it works</h2>
+            <p class="section__desc">
+              A simple pipeline: detect flow, map liquidity, score catalysts, then output actionable
+              futures insight.
+            </p>
+          </div>
+
+          <div class="howMap" aria-label="How it works pipeline">
+            <div class="howMap__grid" aria-hidden="true"></div>
+            <div class="howMap__flow" aria-hidden="true">
+              <span class="howMap__beam"></span>
+            </div>
+
+            <div class="howMap__nodes" role="list" aria-label="Pipeline steps">
+              <div class="howNode howNode--s1" role="listitem">
+                <div class="howNode__dot" aria-hidden="true"></div>
+                <div class="howNode__num">01</div>
+                <div class="howNode__title">Ingest futures flow</div>
+                <div class="howNode__desc">Capture size, direction, and urgency across key venues.</div>
+                <div class="howNode__meta">CEX + DEX • OI • Liquidations</div>
+              </div>
+
+              <div class="howNode howNode--s2" role="listitem">
+                <div class="howNode__dot" aria-hidden="true"></div>
+                <div class="howNode__num">02</div>
+                <div class="howNode__title">Map hidden liquidity</div>
+                <div class="howNode__desc">Reveal pockets, magnets, absorption, and liquidity shifts.</div>
+                <div class="howNode__meta">Heatmap • Zones • Sweeps</div>
+              </div>
+
+              <div class="howNode howNode--s3" role="listitem">
+                <div class="howNode__dot" aria-hidden="true"></div>
+                <div class="howNode__num">03</div>
+                <div class="howNode__title">AI-score catalysts</div>
+                <div class="howNode__desc">Convert headlines into impact, then link to structure + flow.</div>
+                <div class="howNode__meta">News • Sentiment • Impact</div>
+              </div>
+
+              <div class="howNode howNode--s4" role="listitem">
+                <div class="howNode__dot" aria-hidden="true"></div>
+                <div class="howNode__num">04</div>
+                <div class="howNode__title">Generate signals</div>
+                <div class="howNode__desc">Output trade-ready alerts with confidence and risk context.</div>
+                <div class="howNode__meta">Score • Risk • Execution</div>
+              </div>
+            </div>
+
+            <div class="howBridge" aria-hidden="true">
+              <span class="howArrow howArrow--2"></span>
+              <span class="howArrow howArrow--3"></span>
+              <div class="howBridge__label">Generated signals</div>
+            </div>
+
+            <div class="howSignals" aria-label="Generated signals">
+              <div class="howSignals__grid" id="signalCards" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section section--alt">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="section__title">Roadmap</h2>
+            <p class="section__desc">
+              A phased build focused on shipping real signal: flow → liquidity → catalyst scoring → execution.
+            </p>
+          </div>
+
+          <div class="roadmap" aria-label="Roadmap timeline">
+            <div class="roadmap__rail" aria-hidden="true"></div>
+
+            <article class="milestone">
+              <div class="milestone__dot" aria-hidden="true"></div>
+              <div class="milestone__top">
+                <div class="milestone__phase">Phase 1</div>
+                <div class="milestone__tag">Core</div>
+              </div>
+              <div class="milestone__title">Whale + Flow Scanner</div>
+              <div class="milestone__desc">
+                Live flow ingestion, whale detection, and high-signal alert primitives for better overview.
+              </div>
+              <div class="milestone__list">
+                <div class="mileItem">CEX/DEX venue mapping</div>
+                <div class="mileItem">Liquidation clusters</div>
+                <div class="mileItem">OI + funding deltas</div>
+              </div>
+            </article>
+
+            <article class="milestone">
+              <div class="milestone__dot" aria-hidden="true"></div>
+              <div class="milestone__top">
+                <div class="milestone__phase">Phase 2</div>
+                <div class="milestone__tag">Liquidity</div>
+              </div>
+              <div class="milestone__title">Hidden Liquidity Map</div>
+              <div class="milestone__desc">Zones, magnets, sweeps, and absorption mapped into actionable panels.</div>
+              <div class="milestone__list">
+                <div class="mileItem">Heatmap overlays</div>
+                <div class="mileItem">Key level tagging</div>
+                <div class="mileItem">Session replay</div>
+              </div>
+            </article>
+
+            <article class="milestone">
+              <div class="milestone__dot" aria-hidden="true"></div>
+              <div class="milestone__top">
+                <div class="milestone__phase">Phase 3</div>
+                <div class="milestone__tag">AI</div>
+              </div>
+              <div class="milestone__title">News Impact Engine</div>
+              <div class="milestone__desc">AI-scored catalysts linked to structure + flow for faster decisioning.</div>
+              <div class="milestone__list">
+                <div class="mileItem">Impact scoring</div>
+                <div class="mileItem">Entity + ticker linking</div>
+                <div class="mileItem">Confidence signals</div>
+              </div>
+            </article>
+
+            <article class="milestone">
+              <div class="milestone__dot" aria-hidden="true"></div>
+              <div class="milestone__top">
+                <div class="milestone__phase">Phase 4</div>
+                <div class="milestone__tag">Pro</div>
+              </div>
+              <div class="milestone__title">Execution + Pro Modules</div>
+              <div class="milestone__desc">Signal → plan → alert delivery, plus advanced dashboards and backtests.</div>
+              <div class="milestone__list">
+                <div class="mileItem">Signal cards + routing</div>
+                <div class="mileItem">Backtest pipelines</div>
+                <div class="mileItem">Wallet / integrations</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="tokenomics" class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="section__title">Tokenomics</h2>
+          </div>
+
+          <div class="tokenomics">
+            <div class="tokenomics__panel">
+              <div class="tokenomics__grid" role="list" aria-label="Tokenomics stats">
+                <div class="tokStat" role="listitem">
+                  <div class="tokStat__k">Name</div>
+                  <div class="tokStat__v">Block Futures <span class="tokInline">$BLF</span></div>
+                </div>
+                <div class="tokStat" role="listitem">
+                  <div class="tokStat__k">Total supply</div>
+                  <div class="tokStat__v">1,000,000,000</div>
+                </div>
+                <div class="tokStat" role="listitem">
+                  <div class="tokStat__k">LP</div>
+                  <div class="tokStat__v">1.6 ETH <span class="tokInlineSep">•</span> 2 years (UNCX)</div>
+                </div>
+                <div class="tokStat" role="listitem">
+                  <div class="tokStat__k">Tax</div>
+                  <div class="tokStat__v">3/3</div>
+                </div>
+                <div class="tokStat" role="listitem">
+                  <div class="tokStat__k">Ownership</div>
+                  <div class="tokStat__v">Renounced</div>
+                </div>
+                <div class="tokStat" role="listitem">
+                  <div class="tokStat__k">Team tokens</div>
+                  <div class="tokStat__v">4%</div>
+                </div>
+              </div>
+
+              <div class="tokenomics__actions" aria-label="Token actions">
+                <div class="tokCA" aria-label="Contract address">
+                  <div class="tokCA__k">Contract</div>
+                  <div class="tokCA__v" id="tokenCa">0X0-TBA</div>
+                </div>
+                <div class="tokBtns">
+                  <button class="btn btn--ghost" type="button" id="copyCaBtn">
+                    <span class="tokBtn__icon" aria-hidden="true">⧉</span>
+                    <span>Copy CA</span>
+                  </button>
+                  <a class="btn btn--primary" href="#" aria-label="Buy $BLF">
+                    <span class="tokBtn__icon" aria-hidden="true">↗</span>
+                    <span>Buy $BLF</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="tokenomics__brand" aria-hidden="true">
+                <img class="tokenomics__brandLogo" src="./assets/tokenomics-logo.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="insights" class="section">
+        <div class="container">
+          <div class="section__head">
+            <h2 class="section__title">Built to feel “next-gen”</h2>
+            <p class="section__desc">
+              A futuristic neon aesthetic that matches your logo/banner while staying readable.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="get-started" class="section section--cta">
+        <div class="container cta">
+          <div class="cta__left">
+            <h2 class="cta__title">Block Futures ($BLF)</h2>
+            <p class="cta__desc">Ready to see the market before it moves?</p>
+          </div>
+          <div class="cta__right">
+            <a class="btn btn--primary" href="#top">BLF PLATFORM (SOON)</a>
+            <a class="btn btn--ghost" href="#features">Explore features</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <img class="footer__logo" src="./assets/logo-mark.png" alt="" />
+          <div>
+            <div class="footer__name">Block Futures</div>
+            <div class="footer__sub">$BLF • See the market before it moves</div>
+          </div>
+        </div>
+        <div class="footer__actions">
+          <a
+            class="btn btn--ghost btn--small socialBtn"
+            href="https://x.com/Blockfutures_io"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Block Futures on X"
+          >
+            <span class="socialBtn__icon" aria-hidden="true">𝕏</span>
+          </a>
+          <a
+            class="btn btn--ghost btn--small socialBtn"
+            href="https://t.me/Blockfutures_io"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Block Futures on Telegram"
+          >
+            <span>Telegram</span>
+          </a>
+        </div>
+        <div class="footer__meta">© <span id="year"></span> Block Futures. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
+

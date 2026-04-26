@@ -838,6 +838,7 @@ startScrollReveal();
 function startTokenomics() {
   const ca = document.getElementById("tokenCa");
   const btn = document.getElementById("copyCaBtn");
+  const label = btn?.querySelector(".copyCaBtn__label");
   if (!ca || !btn) return;
 
   btn.addEventListener("click", async () => {
@@ -845,9 +846,9 @@ function startTokenomics() {
     if (!text) return;
     try {
       await navigator.clipboard.writeText(text);
-      btn.textContent = "Copied";
+      if (label) label.textContent = "Copied";
       window.setTimeout(() => {
-        btn.textContent = "Copy CA";
+        if (label) label.textContent = "Copy CA";
       }, 1100);
     } catch {
       // Fallback
@@ -857,9 +858,9 @@ function startTokenomics() {
       ta.select();
       document.execCommand("copy");
       ta.remove();
-      btn.textContent = "Copied";
+      if (label) label.textContent = "Copied";
       window.setTimeout(() => {
-        btn.textContent = "Copy CA";
+        if (label) label.textContent = "Copy CA";
       }, 1100);
     }
   });

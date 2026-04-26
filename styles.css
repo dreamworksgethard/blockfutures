@@ -103,12 +103,18 @@ a {
 
 
 .topbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  z-index: 50;
   backdrop-filter: blur(14px);
   background: rgba(5, 6, 7, 0.55);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body {
+  padding-top: 72px;
 }
 
 .topbar__inner {
@@ -1980,6 +1986,11 @@ a {
   background: linear-gradient(180deg, rgba(10, 11, 12, 0.98), rgba(10, 11, 12, 0));
   pointer-events: none;
   z-index: 0;
+}
+
+/* About: remove the extra top fade layer (avoid visible band on scroll) */
+#about.section--alt::before {
+  display: none;
 }
 
 /* Roadmap: keep a single clean background (no extra layers) */

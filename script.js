@@ -190,7 +190,7 @@ void main() {
   resize();
 
   let raf = 0;
-  let running = true;
+  let running = false;
   function render(t) {
     if (!running) return;
     gl.uniform3f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height, 1.0);
@@ -229,6 +229,12 @@ void main() {
   );
   io.observe(host);
 
+  // Set initial state immediately (avoid rendering off-screen on load)
+  const rect = host.getBoundingClientRect();
+  const visible = rect.bottom > 0 && rect.top < (window.innerHeight || 1);
+  if (visible) start();
+  else stop();
+
   // Also stop when tab is hidden
   document.addEventListener(
     "visibilitychange",
@@ -245,7 +251,7 @@ void main() {
     { passive: true }
   );
 
-  raf = requestAnimationFrame(render);
+  // Rendering is started/stopped by the IntersectionObserver.
 }
 
 // --- PnL card animation (number + bar drift) ---
@@ -814,7 +820,10 @@ function startScrollReveal() {
   if (reduceMotion) return;
 
   // Footer should always be visible (no reveal), to avoid it "disappearing" near page end.
-  const nodes = Array.from(document.querySelectorAll(".section, .hero"));
+  // Apply reveal globally, but keep About static (no scrolling effect).
+  const nodes = Array.from(document.querySelectorAll(".section, .hero")).filter(
+    (el) => el.id !== "about"
+  );
   if (nodes.length === 0) return;
 
   for (const el of nodes) el.classList.add("reveal");

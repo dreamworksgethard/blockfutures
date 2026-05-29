@@ -842,37 +842,3 @@ function startScrollReveal() {
 }
 
 startScrollReveal();
-
-// --- Tokenomics: copy CA ---
-function startTokenomics() {
-  const ca = document.getElementById("tokenCa");
-  const btn = document.getElementById("copyCaBtn");
-  const label = btn?.querySelector(".copyCaBtn__label");
-  if (!ca || !btn) return;
-
-  btn.addEventListener("click", async () => {
-    const text = (ca.textContent || "").trim();
-    if (!text) return;
-    try {
-      await navigator.clipboard.writeText(text);
-      if (label) label.textContent = "Copied";
-      window.setTimeout(() => {
-        if (label) label.textContent = "Copy CA";
-      }, 1100);
-    } catch {
-      const ta = document.createElement("textarea");
-      ta.value = text;
-      document.body.appendChild(ta);
-      ta.select();
-      document.execCommand("copy");
-      ta.remove();
-      if (label) label.textContent = "Copied";
-      window.setTimeout(() => {
-        if (label) label.textContent = "Copy CA";
-      }, 1100);
-    }
-  });
-}
-
-startTokenomics();
-

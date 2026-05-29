@@ -3131,20 +3131,6 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.tokenomics__actions {
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  gap: 12px;
-  align-items: stretch;
-  width: 100%;
-  max-width: none;
-  margin-left: 0;
-  margin-right: auto;
-  justify-content: flex-start;
-}
-
 .tokBrand {
   width: 54px;
   height: 54px;
@@ -3213,114 +3199,6 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .tokenomics__brandLogo {
     animation: none;
-  }
-}
-
-
-.tokCA {
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
-  padding: 12px 12px;
-  overflow: hidden;
-  position: relative;
-  min-width: 280px;
-  transition: transform 180ms ease, border-color 200ms ease, box-shadow 200ms ease, filter 200ms ease;
-  flex: 0 1 420px;
-  max-width: 520px;
-}
-
-.tokBtns {
-  flex: 0 0 auto;
-  align-self: center;
-  margin-left: 26px;
-}
-
-.tokCA:hover {
-  transform: translateY(-2px);
-  border-color: rgba(251, 232, 33, 0.16);
-  box-shadow: 0 34px 120px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(251, 232, 33, 0.06) inset;
-  filter: saturate(1.02) brightness(1.02);
-}
-
-.tokCA::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: radial-gradient(520px 200px at 18% 0%, rgba(251, 232, 33, 0.12), transparent 60%);
-  opacity: 0.75;
-  pointer-events: none;
-}
-
-.tokCA__k {
-  position: relative;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.tokCA__v {
-  margin-top: 8px;
-  position: relative;
-  color: rgba(255, 255, 255, 0.86);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.08em;
-  font-size: 12px;
-  word-break: break-all;
-}
-
-.tokBtns {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.tokBtns .btn {
-  min-width: 140px;
-  justify-content: center;
-  gap: 10px;
-}
-
-.tokBtn__icon {
-  display: inline-flex;
-  width: 18px;
-  height: 18px;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  opacity: 0.95;
-  filter: drop-shadow(0 0 14px rgba(251, 232, 33, 0.16));
-}
-
-.tokBtns .btn {
-  position: relative;
-}
-
-/* Tokenomics action buttons: use default .btn hover */
-
-@media (max-width: 520px) {
-  .tokBtns {
-    justify-content: stretch;
-  }
-  .tokBtns .btn {
-    flex: 1 1 100%;
-  }
-}
-
-@media (max-width: 920px) {
-  .tokenomics__actions {
-    flex-wrap: wrap;
-  }
-  .tokCA {
-    min-width: 0;
-    flex: 1 1 100%;
-  }
-  .tokBtns {
-    flex: 1 1 100%;
-    justify-content: flex-start;
   }
 }
 
@@ -4537,9 +4415,6 @@ body {
     grid-template-columns: 1fr;
   }
   .tokenomics__grid {
-    grid-template-columns: 1fr;
-  }
-  .tokenomics__actions {
     grid-template-columns: 1fr;
   }
   .tokenomics__brand {
